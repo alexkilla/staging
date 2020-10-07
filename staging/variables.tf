@@ -1,6 +1,11 @@
 variable db_password {}
 
-variable "cluster_name" {
+variable "t" {
   description = "The name to use for all the cluster resources"
-  default = "web-server-staging"
+  default = "webServer"
+}
+
+variable "env_name" {
+  description = "The name of the environment"
+  default = "staging"
 }

@@ -13,8 +13,9 @@ provider "aws" {
 
 module "mysql-db" {
   source = "../modules/rds_my_sql"
-  db_password = var.db_password
+  env_name = var.env_name
   cluster_name = var.cluster_name
+  db_password = var.db_password
 }
 
 module "web-server" {
