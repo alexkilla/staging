@@ -14,10 +14,15 @@ provider "aws" {
 module "mysql-db" {
   source = "../modules/rds_my_sql"
   db_password = var.db_password
+  cluster_name = var.cluster_name
 }
 
 module "web-server" {
-  source = "../modules/services/web_server"
+  source = "../modules/web_server"
+  cluster_name = var.cluster_name
   db_address = module.mysql-db.address
   db_port = module.mysql-db.port
+  instance_type = "t2.micro"
+  min_size      = 2
+  max_size      = 2
 }
