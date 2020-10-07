@@ -3,6 +3,8 @@ provider "aws" {
   version = "~> 3.9"
 }
 
+provider "template" { version = "~> 2.1" }
+
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "alexkilla-terraform-state"
 

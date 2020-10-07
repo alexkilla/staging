@@ -15,3 +15,9 @@ module "mysql-db" {
   source = "../modules/rds_my_sql"
   db_password = var.db_password
 }
+
+module "web-server" {
+  source = "../modules/services/web_server"
+  db_address = module.mysql-db.address
+  db_port = module.mysql-db.port
+}
